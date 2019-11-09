@@ -83,7 +83,7 @@ export const loadPostsRequest = () => {
         dispatch(startRequest());
         try {
             //let res = await axios.get(`${API_URL}/posts`);
-            let res = await axios.get(`${BASE_URL}/posts`);
+            let res = await axios.get(`${BASE_URL}${API_URL}/posts`);
             await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             dispatch(loadPosts(res.data));
             dispatch(endRequest());
@@ -99,7 +99,7 @@ export const loadSinglePostRequest = id => {
         dispatch(startRequest());
         try {
             //let res = await axios.get(`${API_URL}/posts/${id}`);
-            let res = await axios.get(`${BASE_URL}/posts/${id}`);
+            let res = await axios.get(`${BASE_URL}${API_URL}/posts/${id}`);
             //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             dispatch(loadSinglePost(res.data));
             dispatch(endRequest());
@@ -116,7 +116,7 @@ export const addPostRequest = (post) => {
         try {
             // eslint-disable-next-line
             //let res = await axios.post(`${API_URL}/posts`, post);
-            let res = await axios.post(`${BASE_URL}/posts`, post);
+            let res = await axios.post(`${BASE_URL}${API_URL}/posts`, post);
             //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             dispatch(endRequest());
         } catch(e) {
@@ -135,7 +135,7 @@ export const loadPostsByPageRequest = (page, postsPerPage = 10) => {
             const limit = postsPerPage;
 
             //let res = await axios.get(`${API_URL}/posts/range/${startAt}/${limit}`);    
-            let res = await axios.get(`${BASE_URL}/posts/range/${startAt}/${limit}`);
+            let res = await axios.get(`${BASE_URL}${API_URL}/posts/range/${startAt}/${limit}`);
             //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     
             const payload = {
