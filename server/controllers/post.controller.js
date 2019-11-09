@@ -1,5 +1,5 @@
 const Post = require('../models/post.model');
-const uuid = require('uuidv4').default;
+const uuid = require('uuid');
 
 // get all posts
 exports.getPosts = async (req, res) => {
@@ -14,13 +14,14 @@ exports.getPosts = async (req, res) => {
 exports.getSinglePost = async (req, res) => {
     try {
         res.status(200).json(await Post.findOne({ id: req.params.id }));
+        //res.status(200).json(await Post.find({id: req.params.id})); // ----------------------- TEST -------------------------
     } catch(err) {
         res.status(500).json(err);
     }
 };
 
 // add new post
-exports.addPost = async function (req, res) {
+exports.addPost = async (req, res) => {
     try {
     
         /* to co poniżej skracamy do: let newPost = new Post(req.body);
@@ -42,8 +43,7 @@ exports.addPost = async function (req, res) {
 };
 
 // get posts by range
-exports.getPostsByRange = async function (req, res) {
-
+exports.getPostsByRange = async (req, res) => {
     try {
         let { startAt, limit } = req.params;
     

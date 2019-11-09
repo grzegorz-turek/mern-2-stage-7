@@ -14,3 +14,13 @@ module.exports = {
     /* local db */
     //DB: 'mongodb://localhost:27017/mernapp'
 };
+
+/*
+const dotenv = require('dotenv');
+dotenv.config();
+
+module.exports = {
+    PORT: process.env.PORT,
+    DB: process.env.DB
+};
+*/
