@@ -12,13 +12,14 @@ const path = require('path');
 const postRoutes = require('./routes/post.routes');
 
 app.use(cors());
+app.use(helmet());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-app.use(helmet());
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     sanitize(req.body);
     next();
 });
+*/
 app.use('/api', postRoutes);
 
 // Serve static files from the React app
