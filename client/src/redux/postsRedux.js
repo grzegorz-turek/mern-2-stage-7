@@ -84,7 +84,7 @@ export const loadPostsRequest = () => {
         try {
             //let res = await axios.get(`${API_URL}/posts`);
             let res = await axios.get(`${BASE_URL}${API_URL}/posts`);
-            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+            //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             dispatch(loadPosts(res.data));
             dispatch(endRequest());
         } catch(e) {
